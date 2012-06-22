@@ -1,5 +1,5 @@
 # Coding Dojo :: Javascript and Jasmine
- ## Problema :: [Jokenpo](http://dojopuzzles.com/problemas/exibe/jokenpo/)
+## Problema :: [Jokenpo](http://dojopuzzles.com/problemas/exibe/jokenpo/)
 
 Este problema foi utilizado em 88 Dojo(s).
 
