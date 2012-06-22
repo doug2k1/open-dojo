@@ -1,0 +1,5 @@
+Dada uma quantidade qualquer de numero inteiros calcular:
+ - Quantidade de numeros passadas para a funçao
+ - Maior numero
+ - Menor numero
+ - Média entre os numeros
