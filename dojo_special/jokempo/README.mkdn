@@ -1,7 +1,12 @@
-# Template to use Javascript and Jasmine on Coding Dojo
- 1. git clone https://albertoleal@github.com/dojo-cit/Javascript_Jasmine_Template.git
- 2. cd Javascript_Jasmine_Template.
- 3. Rename the file "js/lib_template.js" to your lib name.
- 4. Rename the file "tests/spec/lib_template_spec.js" to your spec name.
- 5. Open "tests/SpecRunner.html" and replace the names you changed above.
- 6. Open "tests/SpecRunner.html" on your browser.
+# Coding Dojo :: Javascript and Jasmine
+## Problema :: [Jokenpo](http://dojopuzzles.com/problemas/exibe/jokenpo/)
+
+Jokenpo é uma brincadeira japonesa, onde dois jogadores escolhem um dentre três possíveis itens: Pedra, Papel ou Tesoura.
+
+O objetivo é fazer um juiz de Jokenpo que dada a jogada dos dois jogadores informa o resultado da partida.
+
+As regras são as seguintes:
+
+    * Pedra empata com Pedra e ganha de Tesoura
+    * Tesoura empata com Tesoura e ganha de Papel
+    * Papel empata com Papel e ganha de Pedra
