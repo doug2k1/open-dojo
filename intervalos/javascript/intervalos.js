@@ -11,85 +11,71 @@ var global = {
   * Separate a given array into a set of arrays determined by sequential numbers.
   */
   createIntervals: function(entries) {
-    var output = new Array();
+    var intervals = new Array();
     /**
     * Auxiliar variables for current states: 
-    * - first number of interval
-    * - last number of interval
     * - current number under analysis
+    * - current set
     */
-    var firstOfInterval = null;
-    var lastOfInterval = null;
     var currentItem = null
+    var currentSet = null
     var entriesLength = entries.length;
     global.log('debug','entries length:  '+ entriesLength);
     for (var i in entries){
       currentItem = entries[i];
+      
       global.log('debug','==============new=============');
       global.log('debug','i:  '+ i);
-      global.log('debug','first:  '+ firstOfInterval);
-      global.log('debug','last:   '+ lastOfInterval);
       global.log('debug','current: '+ currentItem);
 
-      // case: we just have one item
-      if((parseInt(i)+1) == entriesLength && lastOfInterval == null){
-        output.push(currentItem);
+      // case: first item of a set
+      if(currentSet == null){
+        currentSet = new Array();
+        currentSet.push(currentItem);
         continue;
       }
-
-      // case: where a new interval begins. first=last
-      if (firstOfInterval == null){
-        firstOfInterval = currentItem;
-        lastOfInterval = firstOfInterval;
-        continue;
-      }
+      
       // case: where we found that lastOfInterval is not sequential with current
-      if(lastOfInterval != (currentItem - 1)){
+      if(currentSet[currentSet.length-1] != (currentItem - 1)){
         // close interval (one or more itens)
-        if(firstOfInterval == lastOfInterval){
-          output.push(firstOfInterval);
-          global.log('debug','interval created: '+ firstOfInterval);
-        }
-        else {
-          output.push(firstOfInterval +'-'+ lastOfInterval);
-          global.log('debug','interval created: '+ firstOfInterval +'-'+ lastOfInterval);
-        }     
-
-        // refresh vars
-        firstOfInterval = currentItem;
-        lastOfInterval = firstOfInterval;
-
-        // case: last item is all by himself
-        if((parseInt(i)+1) == entriesLength){
-          output.push(currentItem);       
-          global.log('debug','interval created: '+ currentItem);
-        }
+        intervals.push(currentSet);
+        global.log('debug','interval created.');
+        
+        // reset vars creating new set with currentItem
+        currentSet = new Array();
+        currentSet.push(currentItem);
         continue;
       } 
-      // case: the list just ended
-      if(parseInt(i)+1 == entriesLength) {
-        // close interval
-        output.push(firstOfInterval +'-'+ currentItem);
-        global.log('debug','interval created: '+ firstOfInterval +'-'+ currentItem);
+      else {
+        // default: add in the set
+        currentSet.push(currentItem);
         continue;
-      }
-
-      // default: anything else simply set the vars
-      lastOfInterval = currentItem;
+      }     
     }
-    return output;
+    if(currentSet != null) {
+      intervals.push(currentSet);
+      currentSet = null;
+    }
+    return intervals;
   },
 
   /**
   * Generate a better HTML version of this output.
   */
-  generateIntervalsHTMLOutput: function(output) {
+  generateIntervalsHTMLOutput: function(intervals) {
     var htmlOutput = document.createElement('div');
     htmlOutput.className = 'output';
     var htmlList = document.createElement('ul');
-    for (var i in output) {
+    for (var i in intervals) {
+      var currentInterval = intervals[i];
       var line = document.createElement('li');
-      line.innerHTML = "["+ output[i].toString() +"]";
+      var firstElement = currentInterval[0].toString();
+      var lastElement = currentInterval[currentInterval.length-1].toString();
+      if(firstElement == lastElement) {
+        line.innerHTML = "["+ firstElement +"]";
+      } else {
+        line.innerHTML = "["+ firstElement +"-"+ lastElement +"]";
+      }      
       htmlList.appendChild(line);
     }
     htmlOutput.appendChild(htmlList);
@@ -108,7 +94,7 @@ var global = {
   log: function(type, msg){
     if(window.console != undefined && typeof console.log == 'function') {
       switch(type){
-        case 'debug': 
+        case 'debug':
           if(global.debug == true){
             console.log(type,msg);
           }
@@ -142,8 +128,8 @@ var global = {
     var entries = [100, 101, 112, 113, 115, 117, 118];
     var entries = [100, 101, 102, 103, 104, 105, 110, 111, 113, 114, 115, 150];
 
-    var output = global.createIntervals(entries);
-    var htmlOutput = global.generateIntervalsHTMLOutput(output);
+    var intervals = global.createIntervals(entries);
+    var htmlOutput = global.generateIntervalsHTMLOutput(intervals);
     var htmlEntries = global.generateEntriesHTMLOutput(entries);
 
     document.body.appendChild(htmlEntries);
