@@ -43,14 +43,10 @@ var global = {
         
         // reset vars creating new set with currentItem
         currentSet = new Array();
-        currentSet.push(currentItem);
-        continue;
-      } 
-      else {
-        // default: add in the set
-        currentSet.push(currentItem);
-        continue;
-      }     
+      }
+
+      currentSet.push(currentItem);
+      continue;
     }
     if(currentSet != null) {
       intervals.push(currentSet);
