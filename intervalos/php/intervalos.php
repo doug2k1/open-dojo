@@ -8,17 +8,17 @@ Entrada: 100, 101, 102, 103, 104, 105, 110, 111, 113, 114, 115, 150
 Saída: ["100-105"], ["110-111"], ["113-115"], ["150"]
 */
 class Interval {
-	private $values;
+  private $values;
 
-	public function __construct($values) {
+  public function __construct($values) {
     $values = array_unique($values);
-		sort($values);
-		$this->values = $values;
-	}
+    sort($values);
+    $this->values = $values;
+  }
 
-	public function get_values() {
-		return $this->values;
-	}
+  public function get_values() {
+    return $this->values;
+  }
 
   public function get_intervals() {
     $sub_list = self::generate_sub_list($this->values);
@@ -65,18 +65,16 @@ class Interval {
 }
 
 class IntervalTest extends PHPUnit_Framework_TestCase {
-	
+  function test_order_list() {
+    $interval = new Interval(array(105, 110, 102, 101));
+    $this->assertEquals(array(101, 102, 105, 110), $interval->get_values());
+  }
 
-	function test_order_list() {
-		$interval = new Interval(array(105, 110, 102, 101));
-		$this->assertEquals(array(101, 102, 105, 110), $interval->get_values());
-	}
-
-	function test_remove_dup_elements() {
-		$interval = new Interval(array(105, 105, 105, 101));
+  function test_remove_dup_elements() {
+    $interval = new Interval(array(105, 105, 105, 101));
     $values = $interval->get_values();
-		$this->assertEquals(2, count($values));
-	}
+    $this->assertEquals(2, count($values));
+  }
 
   /**
   * @expectedException InvalidArgumentException
