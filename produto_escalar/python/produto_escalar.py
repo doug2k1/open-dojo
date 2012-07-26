@@ -7,11 +7,14 @@ class ProdutoEscalar():
         if len(A) != len(B):
             raise TypeError("Os escalares devem ter o mesmo número de elementos")
 
-        result = sum([A[i]*B[i] for i in range(len(A))])
+        product = sum([A[i]*B[i] for i in range(len(A))])
 
-        if result < 0:
-            return [result, "obtuso"]
-        elif result == 0:
-            return [result, "reto"]
+	return [product, self.__get_angle(product)]
+
+    def __get_angle(self, product):
+	if product < 0:
+            return "obtuso"
+        elif product == 0:
+            return "reto"
         else:
-            return [result, "agudo"]
+            return "agudo"
