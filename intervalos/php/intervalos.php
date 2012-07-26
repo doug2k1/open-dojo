@@ -49,13 +49,11 @@ class Interval {
     $sub_list = array(array());
 
     foreach ($list as $value) {
-
       $last_group   =& $sub_list[count($sub_list) - 1];      
       $last_element = end($last_group);
 
       if (empty($last_group) || $last_element == $value -1) {         
-        array_push($last_group, $value);
-        
+        array_push($last_group, $value);        
       } else {        
         array_push($sub_list, array($value));
       }
