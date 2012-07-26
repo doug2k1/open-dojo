@@ -44,6 +44,7 @@ class Interval {
       throw new InvalidArgumentException("invalid argument", 1);      
     }
 
+    $list = array_unique($list);
     sort($list);
     $sub_list = array(array());
 
