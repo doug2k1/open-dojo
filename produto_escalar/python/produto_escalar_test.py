@@ -1,3 +1,5 @@
+# coding: utf-8
+
 import unittest
 from produto_escalar import ProdutoEscalar
 
@@ -31,6 +33,16 @@ class ProdutoEscalar_test(unittest.TestCase):
         A = [2, 3]
         B = [4, -1]
         self.assertEquals([5, "agudo"], ProdutoEscalar().calcular(A, B))
+
+    def test_listas_tamanhos_diferentes(self):
+        A = [2, 3, 4]
+        B = [4, -1]
+        self.assertRaises(TypeError, ProdutoEscalar().calcular, (A,B))
+
+    def test_listas_vazias(self):
+        A = []
+        B = []
+        self.assertRaises(TypeError, ProdutoEscalar().calcular, (A,B))
 
 if __name__ == '__main__':
     unittest.main()

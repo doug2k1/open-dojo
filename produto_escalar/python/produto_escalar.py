@@ -1,10 +1,13 @@
+# coding: utf-8
+
 class ProdutoEscalar():
+    
     def calcular(self, A, B):
+        
+        if len(A) != len(B):
+            raise TypeError("Os escalares devem ter o mesmo número de elementos")
 
-        result = 0
-        for i in range(0, len(A)):
-            result += A[i] * B[i]
-
+        result = sum([A[i]*B[i] for i in range(len(A))])
 
         if result < 0:
             return [result, "obtuso"]
@@ -12,4 +15,3 @@ class ProdutoEscalar():
             return [result, "reto"]
         else:
             return [result, "agudo"]
-
