@@ -39,7 +39,7 @@ class Interval {
     return substr($output, 0, -2);
   }
 
-  public static function generate_sub_list($list = array()) {
+  public static function generate_sub_list(Array $list = array()) {
     if (!is_array($list)) {
       throw new InvalidArgumentException("invalid argument", 1);      
     }
