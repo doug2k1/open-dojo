@@ -1,0 +1,23 @@
+#Produto Escalar de Vetores
+
+Definimos dois vetores A e B de dimensão n em termos de componentes como:
+A = (a1, a2, a3, ..., an) e B = (b1, b2, b3, ..., bn)
+O produto escalar entre esses vetores é descrito como:
+A . B = a1 * b1 + a2 * b2 + a3 * b3 + ... + an * bn
+Desenvolva um programa que, dado dois vetores de dimensão n, retorne o produto escalar entre eles.
+
+##Explicação sobre produto escalar:
+	http://www.youtube.com/watch?v=gtR5eUxemUo
+
+Adicionamos qual o tipo de ângulo formato a saída, também.
+
+#Entrada
+	dois vetores
+	ex: [1,2,3], [3,4,5]
+
+#Saída
+	o produto escalar e o tipo de ângulo de saída
+	ex: [5, 'agudo'] ou [-1, 'obtuso'] ou [0, 'reto']
+
+problema sugerido por: Alberto Leal
+fonte: http://dojopuzzles.com/problemas/exibe/produto-escalar-de-vetores/
