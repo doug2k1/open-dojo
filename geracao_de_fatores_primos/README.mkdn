@@ -1,7 +1,7 @@
-===Circuito Coding Dojo Pólis===
+#===Circuito Coding Dojo Pólis===
 Este Coding Dojo que aconteceu na ci&t faz parte do "circuito de dojo do Pólis", onde funcionários de diferentes empresas se reuniem para resolver um problema e treinar de forma divertida.
 
-===Problema Escolhido===
+###===Problema Escolhido===
 
 Todo número inteiro positivo pode ser representado pelo produto de potências de números primos (os chamados fatores primos).
 
