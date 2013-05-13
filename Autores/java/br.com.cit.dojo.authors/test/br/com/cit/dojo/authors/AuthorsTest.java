@@ -52,11 +52,32 @@ public class AuthorsTest {
 
 	}
 	
-	@Ignore
 	@Test
 	public void testCompositeTwoName() {
 		Authors auth = new Authors(new String[] {"Guimaraes Rosa"});
-		assertTrue(auth.getNames()[0].equals("ROSA, Guimaraes"));
+		assertEquals("ROSA, Guimaraes", auth.getNames()[0]);
 	}
-
+	
+	/**
+	 * Teste com letra maiúscula no meio do nome
+	 */
+	@Test
+	public void testCompositeWithUpperCase(){
+		Authors auth = new Authors(new String[] {"GuiMaraes Rosa"});
+		assertEquals( "ROSA, Guimaraes", auth.getNames()[0]);
+	}
+	
+	@Test
+	public void testCompositeWithLowerCase(){
+		Authors auth = new Authors(new String[] {"guimaraes rosa"});
+		assertEquals( "ROSA, Guimaraes", auth.getNames()[0]);	
+	}
+	
+	
+	@Test
+	public void testCompositeWithThe(){
+		Authors auth = new Authors(new String[] {"Guimaraes de rosa"});
+		assertEquals( "ROSA, Guimaraes de", auth.getNames()[0]);	
+	}
+	
 }
