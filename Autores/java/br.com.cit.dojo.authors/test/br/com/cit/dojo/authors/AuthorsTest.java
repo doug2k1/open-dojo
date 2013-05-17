@@ -45,7 +45,8 @@ public class AuthorsTest {
 	@Test
 	public void testSimpleName() {
 		Authors auth = new Authors(new String[] { "Guimaraes" });
-		assertTrue(auth.getNames()[0].equals("GUIMARAES"));
+		assertEquals("GUIMARAES", auth.getNames()[0]);
+		//assertTrue(auth.getNames()[0].equals("GUIMARAES"));
 		
 		Authors auth2 = new Authors(new String[]{"foo", "bar", "buzz"});
 		assertTrue(auth2.getNames()[1].equals("BAR"));
@@ -78,6 +79,12 @@ public class AuthorsTest {
 	public void testCompositeWithThe(){
 		Authors auth = new Authors(new String[] {"Guimaraes de rosa"});
 		assertEquals( "ROSA, Guimaraes de", auth.getNames()[0]);	
+	}
+	
+	@Test
+	public void testCompositeWithThe2(){
+		Authors auth = new Authors(new String[] {"guimaraes de rosa"});
+		assertEquals("ROSA, Guimaraes de", auth.getNames()[0]);
 	}
 	
 }

@@ -1,6 +1,7 @@
 package br.com.cit.dojo.authors;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 /**
  * 
@@ -42,6 +43,8 @@ import java.lang.reflect.Array;
  * 
  */
 public class Authors {
+	
+	ArrayList<String> exceptions = new ArrayList<String>();
 
 	/**
 	 * @param args
@@ -65,6 +68,13 @@ public class Authors {
 	}
 
 	public Authors(String[] names) {
+		
+		exceptions.add("de");
+		exceptions.add("da");
+		exceptions.add("do");
+		exceptions.add("das");
+		exceptions.add("dos");
+		
 		this.names = names;
 
 		if (!isValid())
@@ -86,11 +96,15 @@ public class Authors {
 	}
 
 	private String camelCase(String name) {
-		name = name.toLowerCase();
-		char[] arrayName = name.toCharArray();
-		arrayName[0] = name.toUpperCase().toCharArray()[0];
-
-		return String.valueOf(arrayName);
+		
+		if (!exceptions.contains(name)) {
+			name = name.toLowerCase();
+			char[] arrayName = name.toCharArray();
+			arrayName[0] = name.toUpperCase().toCharArray()[0];
+			return String.valueOf(arrayName);
+		}
+		
+		return name; 
 
 	}
 
@@ -104,27 +118,61 @@ public class Authors {
 	private void formatName() {
 		String[] arraySplit;
 
-		for (int i = 0; i < this.names.length; i++) {
+
+		
+		for (int i = 0; i < this.names.length; i++) {			
 			arraySplit = this.names[i].split(" ");
-
-			if (arraySplit.length == 1) {
-				this.names[i] = this.names[i].toUpperCase();
-			} else if (arraySplit.length == 2) {
-				this.names[i] = arraySplit[arraySplit.length - 1].toUpperCase()
-						.concat(", ").concat(camelCase(arraySplit[0]));
-			} else if (arraySplit.length == 3) {
-
-				String withoutLastName = new String();
-				for (int j = 0; j < arraySplit.length - 2; j++) {
-					if (arraySplit[j].toLowerCase().equals("de")) {
-						withoutLastName += arraySplit[j];
-					} else {
-						withoutLastName += " " + camelCase(arraySplit[j]);
-					}
-				}
-				this.names[i] = arraySplit[arraySplit.length-1].toUpperCase().concat(", ").concat(withoutLastName);
+			
+			switch(arraySplit.length) {
+				case 1:
+					this.names[i] = nameToUpper(this.names[i]);
+					break;
+				case 2:
+					this.names[i] = formatTwoNames(arraySplit);
+					break;
+				default:
+					this.names[i] = formatMultipleNames(arraySplit);
+					
 			}
+
+//			if (arraySplit.length == 1) {
+//				nameToUpper(i);
+//			} else if (arraySplit.length == 2) {
+//				formatTwoNames(arraySplit, i);
+			// else if (arraySplit.length >= 3) {
+
+//				String withoutLastName = new String();
+//				for (int j = 0; j < arraySplit.length - 2; j++) {
+//					if (arraySplit[j].toLowerCase().equals("de")) {
+//						withoutLastName += arraySplit[j];
+//					} else {
+//						withoutLastName += " " + camelCase(arraySplit[j]);
+//					}
+//				}
+//				this.names[i] = arraySplit[arraySplit.length-1].toUpperCase().concat(", ").concat(withoutLastName);
 		}
+
+	}	
+
+	private String formatTwoNames(String[] arraySplit) {
+		return arraySplit[arraySplit.length - 1].toUpperCase()
+				.concat(", ").concat(camelCase(arraySplit[0]));
+	}
+
+	private String nameToUpper(String name) {
+		return name.toUpperCase();
+	}
+	
+	private String formatMultipleNames(String[] arraySplit) {
+		
+		String strNomeInteiro = nameToUpper(arraySplit[arraySplit.length -1]).concat(",");
+		
+		for(int i = 0; i<arraySplit.length -1; i++)
+			 strNomeInteiro = strNomeInteiro.concat(" ".concat(camelCase(arraySplit[i])));
+				
+		return strNomeInteiro ;
+		
+		//return "ROSA, Guimaraes de";
 	}
 
 }
