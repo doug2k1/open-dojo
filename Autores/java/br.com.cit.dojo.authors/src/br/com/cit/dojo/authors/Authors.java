@@ -1,5 +1,9 @@
 package br.com.cit.dojo.authors;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -15,7 +19,9 @@ import java.util.ArrayList;
  * 
  *         Por exemplo:
  * 
- *         SILVA, Joao COELHO, Paulo ARAUJO, Celso de
+ *         SILVA, Joao 
+ *         COELHO, Paulo
+ *         ARAUJO, Celso de
  * 
  *         Seu desafio é fazer um programa que leia um número inteiro
  *         correspondendo ao número de nomes que será fornecido, e, a seguir,
@@ -45,6 +51,7 @@ import java.util.ArrayList;
 public class Authors {
 	
 	ArrayList<String> exceptions = new ArrayList<String>();
+	ArrayList<String> suffixs = new ArrayList<String>();
 
 	/**
 	 * @param args
@@ -67,6 +74,14 @@ public class Authors {
 		this.names = names;
 	}
 
+	public Authors(String fileName) throws IOException {
+		BufferedReader is = new BufferedReader(new FileReader(fileName));
+		String line; 
+		while((line = is.readLine()) != null) {
+			System.out.println(line + "LEU");
+		}		
+	}
+	
 	public Authors(String[] names) {
 		
 		exceptions.add("de");
@@ -76,6 +91,8 @@ public class Authors {
 		exceptions.add("dos");
 		
 		this.names = names;
+		
+		suffixExceptions();
 
 		if (!isValid())
 			throw new IllegalArgumentException("parâmetro names");
@@ -96,9 +113,9 @@ public class Authors {
 	}
 
 	private String camelCase(String name) {
+		name = name.toLowerCase();
 		
-		if (!exceptions.contains(name)) {
-			name = name.toLowerCase();
+		if (!exceptions.contains(name)) {			
 			char[] arrayName = name.toCharArray();
 			arrayName[0] = name.toUpperCase().toCharArray()[0];
 			return String.valueOf(arrayName);
@@ -114,11 +131,19 @@ public class Authors {
 
 		return "";
 	}
-
+	
+	private void suffixExceptions() {
+		String namesSuffixs[] = { "FILHO", "FILHA", "NETO",    "NETA", "SOBRINHO", "SOBRINHA", "JUNIOR",
+				"JÚNIOR"};
+		for(int i = 0; i < namesSuffixs.length; i++) {
+			this.suffixs.add(namesSuffixs[i]);
+		}
+	}
+	
 	private void formatName() {
 		String[] arraySplit;
 
-
+		
 		
 		for (int i = 0; i < this.names.length; i++) {			
 			arraySplit = this.names[i].split(" ");
@@ -134,22 +159,6 @@ public class Authors {
 					this.names[i] = formatMultipleNames(arraySplit);
 					
 			}
-
-//			if (arraySplit.length == 1) {
-//				nameToUpper(i);
-//			} else if (arraySplit.length == 2) {
-//				formatTwoNames(arraySplit, i);
-			// else if (arraySplit.length >= 3) {
-
-//				String withoutLastName = new String();
-//				for (int j = 0; j < arraySplit.length - 2; j++) {
-//					if (arraySplit[j].toLowerCase().equals("de")) {
-//						withoutLastName += arraySplit[j];
-//					} else {
-//						withoutLastName += " " + camelCase(arraySplit[j]);
-//					}
-//				}
-//				this.names[i] = arraySplit[arraySplit.length-1].toUpperCase().concat(", ").concat(withoutLastName);
 		}
 
 	}	
@@ -164,12 +173,19 @@ public class Authors {
 	}
 	
 	private String formatMultipleNames(String[] arraySplit) {
-		
+					
 		String strNomeInteiro = nameToUpper(arraySplit[arraySplit.length -1]).concat(",");
 		
-		for(int i = 0; i<arraySplit.length -1; i++)
-			 strNomeInteiro = strNomeInteiro.concat(" ".concat(camelCase(arraySplit[i])));
-				
+		if (suffixs.contains(arraySplit[arraySplit.length - 1].toUpperCase())){
+			strNomeInteiro = arraySplit[arraySplit.length -2].toUpperCase() + " " + strNomeInteiro;
+			
+			for(int i = 0; i<arraySplit.length -2; i++)
+				 strNomeInteiro = strNomeInteiro.concat(" ".concat(camelCase(arraySplit[i])));
+		}
+		else{		
+			for(int i = 0; i<arraySplit.length -1; i++)
+				strNomeInteiro = strNomeInteiro.concat(" ".concat(camelCase(arraySplit[i])));
+		}	
 		return strNomeInteiro ;
 		
 		//return "ROSA, Guimaraes de";

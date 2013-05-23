@@ -6,6 +6,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.io.IOException;
+
 import org.hamcrest.core.IsNull;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -86,5 +88,53 @@ public class AuthorsTest {
 		Authors auth = new Authors(new String[] {"guimaraes de rosa"});
 		assertEquals("ROSA, Guimaraes de", auth.getNames()[0]);
 	}
+	
+	@Test
+	public void testCompositeWithThe3(){
+		Authors auth = new Authors(new String[] {"guimAraes De rOsa"});
+		assertEquals("ROSA, Guimaraes de", auth.getNames()[0]);
+	}
+	
+	@Test
+	public void testMultipleNames() {
+		Authors auth = new Authors(new String[] {"Guimarães de Rosa Silva"});
+		assertEquals("SILVA, Guimarães de Rosa", auth.getNames()[0]);
+	}
+	
+	@Test
+	public void testMultipleNamesMultipleThe() {
+		Authors auth = new Authors(new String[] {"Guimarães de Rosa da Silva"});
+		assertEquals("SILVA, Guimarães de Rosa da", auth.getNames()[0]);
+	}
+	
+	@Test
+	public void testMultipleNamesWithSuffix(){
+		Authors auth = new Authors(new String[]{"Guimarães SilVa Júnior"});
+		assertEquals("SILVA JÚNIOR, Guimarães", auth.getNames()[0]);
+	}
+	@Test
+	public void testMultipleNamesWithSuffixCaps(){
+		Authors auth = new Authors (new String[] {"Guimarães Silva JUNIOR"});
+		assertEquals("SILVA JUNIOR, Guimarães", auth.getNames()[0]);
+	}
+	@Test
+	public void testMultipleNamesWithSuffixandThe(){
+		Authors auth = new Authors (new String[] {"Guimarães da Silva FILHO"});
+		assertEquals("SILVA FILHO, Guimarães da", auth.getNames()[0]);
+	}
+	
+	@Test
+	public void testFabioJunior(){
+		Authors auth = new Authors (new String[] {"Fabio Junior"});
+		assertEquals("JUNIOR, Fabio", auth.getNames()[0]);
+	}
+	
+	@Test
+	public void testFile() throws IOException{
+		Authors auth = new Authors ("C:\\Users\\lucas\\workspace\\open-dojo\\Autores\\java\\br\\com\\cit\\dojo\\authors\\src\\br\\com\\cit\\dojo\\authors\\names.txt");
+		//
+	}
+
+	
 	
 }
