@@ -10,7 +10,7 @@ var Field = function() {
 	// X - Right Shot;
 
 	this.placeShip = function(ship, posX, posY) {
-		console.log(this.field);
+		//console.log(this.field);
 		var shipSize = ship.length;
 		// TODO ... assumindo inicialmente que a orientação é horizontal
 		if ( !(shipSize > 1 && shipSize < 6)) {
@@ -24,7 +24,6 @@ var Field = function() {
 						this.field[posX][posY+j] = 0;
 					}	
 				}
-				
 				return false;
 			} 
 

@@ -1,0 +1,208 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"this",
+				"shwithin - should be within range"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"INst",
+				"Package Control: Install Package"
+			],
+			[
+				"INSTA",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/index.html",
+		"/C/Users/ppicoli/Desktop/desktop/browser_detect/browser_detect.js",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/lib/abstract-element.js",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/lib/abstract-canvas-element.js",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/lib/world-map.js",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/lib/vector-canvas.js",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/lib/svg-canvas-element.js",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/jquery-jvectormap.css",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/lib/simple-scale.js",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/lib/proj.js",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/lib/jvectormap.js",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/lib/data-series.js",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/jquery-jvectormap.js",
+		"/C/Users/ppicoli/Downloads/bjornd-jvectormap-1.2.2-full/jquery-jvectormap.js",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/test-map.html",
+		"/C/Users/ppicoli/Downloads/bjornd-jvectormap-1.2.2-full/tests/build.html",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/jvectormap.jquery.json",
+		"/C/Users/ppicoli/Downloads/bjornd-jvectormap-1.2.2-full/tests/assets/jquery-jvectormap-us-mill-en.js",
+		"/D/SublimeText-3/Data/Packages/Emmet/Emmet.sublime-settings",
+		"/D/SublimeText-3/Data/Packages/User/Emmet.sublime-settings",
+		"/D/SublimeText-3/Data/Packages/Emmet/Default (Windows).sublime-keymap",
+		"/C/Users/ppicoli/Downloads/bjornd-jvectormap-1.2.2-full/jquery-mousewheel.js",
+		"/C/Users/ppicoli/Desktop/TEMP/test.js",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/jquery-jvectormap-1.2.2.css",
+		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/jquery-jvectormap-1.2.2.min.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"regions",
+			"regionsSelectable",
+			"../"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"project": "battleship.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,4 +1,13 @@
+var ShipTypes = {
+	"PATRULHA"     : "barco de patrulha",
+	"DESTROYER"    : "destroyer",
+	"SUBMARINO"    : "submarino",
+	"ENCOURACADO"  : "encouraçado",
+	"PORTA_AVIOES" : "porta-aviões"
+};
+
 var Ship = function(name) {
+	
 	if(name === "barco de patrulha"){
 		return [1,1];
 	}

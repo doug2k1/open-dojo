@@ -46,7 +46,7 @@ describe("Campo", function() {
 	});
 
 	it("deve ser possivel inserir barco de patrulha na posição 0x0", function() {
-		var ship = Ship("barco de patrulha");
+		var ship = Ship(ShipTypes.PATRULHA);
         // Deve verificar se a posição 0x0 possui um barco de patrulha333
 		expect(field.placeShip(ship, 0, 0)).toBeTruthy;
 
@@ -61,24 +61,36 @@ describe("Campo", function() {
 
 	it("Deve retornar false para barcos invalidos", function(){
 		expect(field.placeShip([1], 0, 0)).toBeFalsy();
+		expect(field.field[0][0]).toBe(0);
+		console.log(field.field);
 	});
 
 	it("com seu range ocupado deve retornar falso", function() {
-		var ship1 = Ship("barco de patrulha");
+		console.log(field.field);
+		var ship1 = Ship(ShipTypes.PATRULHA);
 		field.placeShip(ship1, 0, 1);
+		console.log(field.field[0][0]);
 		expect(field.placeShip(ship1, 0, 0)).toBeFalsy();
 	});
 
 	it("com seu range ocupado nao deve ocupar nenhuma posição", function() {
-		var ship1 = Ship("barco de patrulha");
+		
+		var ship1 = Ship(ShipTypes.PATRULHA);
 		field.placeShip(ship1, 0, 1);
 		field.placeShip(ship1, 0, 0);
+
+		expect(field.field[0][3]).toBe(0);
+		
 
 		expect(field.field[0][0]).toBe(0);
 	});
 
-	// verifica se a posicao escolhida do barco é menor que o total de espaço disponível
-	it("", function(){
-
+	it("deve haver espaço para insercao do barco", function(){
+		var ship1 = Ship(ShipTypes.PATRULHA);
+		expect(field.placeShip(ship1, 0, 9)).toBeFalsy();        
+		expect(field.field[0][9]).toBe(0);
+		expect(field.field[0][10]).toBeUndefined();
+		expect(field.placeShip(ship1, 0, 0)).toBeTruthy();
+		//expect(field.field[0][2]).toBe(0);
 	});
 });

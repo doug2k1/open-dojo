@@ -7,23 +7,23 @@
 
 describe("Um navio", function() {
 	it("de patrulha deveria ter tamanho igual a 2", function(){
-		var navio = Ship("barco de patrulha");
+		var navio = Ship(ShipTypes.PATRULHA);
 		expect(navio.length).toBe(2);
 	});
 	it("destroyer deveria ter tamanho igual a 3", function(){
-		var navio = Ship("destroyer");
+		var navio = Ship(ShipTypes.DESTROYER);
 		expect(navio.length).toBe(3);
 	});
 	it("submarino deveria ter tamanho igual a 3", function(){
-		var navio = Ship("submarino");
+		var navio = Ship(ShipTypes.SUBMARINO);
 		expect(navio.length).toBe(3);
 	});
 	it("encouraçado deveria ter tamanho igual a 4", function(){
-		var navio = Ship("encouraçado");
+		var navio = Ship(ShipTypes.ENCOURACADO);
 		expect(navio.length).toBe(4);
 	});
 	it("porta-aviões deveria ter tamanho igual a 5", function(){
-		var navio = Ship("porta-aviões");
+		var navio = Ship(ShipTypes.PORTA_AVIOES);
 		expect(navio.length).toBe(5);
 	});
 });
