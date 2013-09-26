@@ -9,28 +9,50 @@ var Field = function() {
 	// > 0 - Ship;
 	// X - Right Shot;
 
-	this.placeShip = function(ship, posX, posY) {
-		//console.log(this.field);
-		var shipSize = ship.length;
-		// TODO ... assumindo inicialmente que a orientação é horizontal
-		if ( !(shipSize > 1 && shipSize < 6)) {
+	this.validShip = function(ship) {
+		if ( !(ship.length > 1 && ship.length < 6)) {
 			return false;
 		}
+		return true;
+	}
 
-		for(var i = 0; i <= shipSize; i++){
+	this.validPlace = function(ship, posX, posY){
+
+		// ############################
+		// TODO ... terminar a validação - paramos AQUI !!!!!
+		// NÃO ESTÁ PRONTO
+		// ############################
+
+		for(var i = posY; i < shipSize; i++){
 			if(this.field[posX][posY + i] != 0){
-				if(i !=0){
-					for(var j = i-1; j >= 0; j--){
-						this.field[posX][posY+j] = 0;
-					}	
-				}
 				return false;
 			} 
-
-			this.field[posX][posY + i] = 1;
 		}
-
-
 		return true;
+	}
+
+	this.placeShip = function(ship, posX, posY) {
+
+		var shipSize = ship.length;
+		// TODO ... assumindo inicialmente que a orientação é horizontal
+		
+		if (this.validShip(ship) && this.validPlace(ship, posX, posY)) {
+			for(var i = 0; i < shipSize; i++){
+				this.field[posX][posY + i] = 1;
+			}
+
+			return true;			
+		}
+		return false;
+	}
+
+	this.toString = function() {
+		for(var i = 0; i < 10; i++){
+			for (var j = 0; j < 10; j++) {
+				document.write(this.field[i][j] + " ");
+			}
+			document.write("<br />");
+		}
+		document.write("<br /><br />");
 	}
 }

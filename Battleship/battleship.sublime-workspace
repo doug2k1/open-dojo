@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"vali",
+				"this.validPlace"
+			],
+			[
+				"va",
+				"validShip"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"fil",
+				"field.field"
+			],
+			[
+				"expe",
+				"expect"
+			],
+			[
+				"fiel",
+				"field"
+			],
+			[
+				"PATR",
+				"ShipTypes.PATRULHA"
+			],
+			[
 				"this",
 				"shwithin - should be within range"
 			]
@@ -11,6 +39,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "spec/FieldSpec.js",
+			"settings":
+			{
+				"buffer_size": 2826,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/Field.js",
+			"settings":
+			{
+				"buffer_size": 1182,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/Ship.js",
+			"settings":
+			{
+				"buffer_size": 485,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -64,6 +116,9 @@
 	},
 	"file_history":
 	[
+		"/D/DOJO/javascript/Battleship/SpecRunner.html",
+		"/D/DOJO/javascript/Battleship/spec/ShipSpec.js",
+		"/D/DOJO/javascript/Battleship/spec/PlayerSpec.js",
 		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/index.html",
 		"/C/Users/ppicoli/Desktop/desktop/browser_detect/browser_detect.js",
 		"/C/Users/ppicoli/Downloads/jquery-jvectormap-1.2.2/lib/abstract-element.js",
@@ -96,9 +151,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			"D:\\DOJO\\javascript\\Battleship"
 		]
 	},
 	"find_state":
@@ -106,6 +162,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"instanci",
+			");\n",
+			"console.log",
+			"Ship(",
+			"Ship",
 			"regions",
 			"regionsSelectable",
 			"../"
@@ -127,14 +188,102 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "spec/FieldSpec.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2826,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2453,
+								2453
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1222.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/Field.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1182,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								306,
+								306
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+						},
+						"translation.x": 0.0,
+						"translation.y": 162.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/Ship.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 485,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								266,
+								266
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -166,7 +315,7 @@
 	"project": "battleship.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":

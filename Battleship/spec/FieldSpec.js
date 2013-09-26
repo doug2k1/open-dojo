@@ -8,14 +8,17 @@ describe("Campo", function() {
 
 	beforeEach(function() {
 		field = new Field();
+		//field.toString();
 	});
 
 	xit("should be able to have one ship", function() {
+		console.log("01");
 		var ship = new Ship(2);
 		field.place(ship);
 	});
 
 	it("instanciado deveria ter 10x10.", function() {
+		console.log("02");
 		// var expectedField = [[0,0,0,0,0,0,0,0,0,0],
 		// 					 [0,0,0,0,0,0,0,0,0,0],
 		// 					 [0,0,0,0,0,0,0,0,0,0],
@@ -39,13 +42,15 @@ describe("Campo", function() {
 	});
 
 	it("instanciado, deve ser possivel posicionar um navio", function() {
+		console.log("04");
 		var ship = Ship("barco de patrulha");
 
 		expect(field.placeShip(ship, 0, 0)).toBeTruthy();
-
 	});
 
 	it("deve ser possivel inserir barco de patrulha na posição 0x0", function() {
+		console.log("05");
+
 		var ship = Ship(ShipTypes.PATRULHA);
         // Deve verificar se a posição 0x0 possui um barco de patrulha333
 		expect(field.placeShip(ship, 0, 0)).toBeTruthy;
@@ -60,32 +65,36 @@ describe("Campo", function() {
 	});
 
 	it("Deve retornar false para barcos invalidos", function(){
+		console.log("06");
 		expect(field.placeShip([1], 0, 0)).toBeFalsy();
 		expect(field.field[0][0]).toBe(0);
 		console.log(field.field);
 	});
 
 	it("com seu range ocupado deve retornar falso", function() {
+		console.log("07");
 		console.log(field.field);
 		var ship1 = Ship(ShipTypes.PATRULHA);
 		field.placeShip(ship1, 0, 1);
-		console.log(field.field[0][0]);
-		expect(field.placeShip(ship1, 0, 0)).toBeFalsy();
+		console.log(field.field);
+		//expect(field.placeShip(ship1, 0, 0)).toBeFalsy();
 	});
 
 	it("com seu range ocupado nao deve ocupar nenhuma posição", function() {
+		console.log("08");
 		
 		var ship1 = Ship(ShipTypes.PATRULHA);
 		field.placeShip(ship1, 0, 1);
 		field.placeShip(ship1, 0, 0);
 
-		expect(field.field[0][3]).toBe(0);
-		
-
 		expect(field.field[0][0]).toBe(0);
+		expect(field.field[0][1]).toBe(1);
+		expect(field.field[0][2]).toBe(1);
+		expect(field.field[0][3]).toBe(0);
 	});
 
 	it("deve haver espaço para insercao do barco", function(){
+		console.log("09");
 		var ship1 = Ship(ShipTypes.PATRULHA);
 		expect(field.placeShip(ship1, 0, 9)).toBeFalsy();        
 		expect(field.field[0][9]).toBe(0);
