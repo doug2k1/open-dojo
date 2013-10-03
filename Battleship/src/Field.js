@@ -17,13 +17,12 @@ var Field = function() {
 	}
 
 	this.validPlace = function(ship, posX, posY){
+        //Se uma parte do navio fica fora do campo.
+		if((posX >= 10) || (posY + ship.length >= 10)){
+    		return false;
+    	}
 
-		// ############################
-		// TODO ... terminar a validação - paramos AQUI !!!!!
-		// NÃO ESTÁ PRONTO
-		// ############################
-
-		for(var i = posY; i < shipSize; i++){
+		for(var i = posY; i < ship.length; i++){
 			if(this.field[posX][posY + i] != 0){
 				return false;
 			} 
@@ -32,18 +31,18 @@ var Field = function() {
 	}
 
 	this.placeShip = function(ship, posX, posY) {
+		// TODO ... assumindo inicialmente que a orientação é horizontal
 
 		var shipSize = ship.length;
-		// TODO ... assumindo inicialmente que a orientação é horizontal
-		
-		if (this.validShip(ship) && this.validPlace(ship, posX, posY)) {
-			for(var i = 0; i < shipSize; i++){
-				this.field[posX][posY + i] = 1;
-			}
-
-			return true;			
+		var isValid = this.validShip(ship) && this.validPlace(ship, posX, posY);
+		if (!isValid) {
+			return false;
 		}
-		return false;
+
+		for(var i = 0; i < shipSize; i++){
+			this.field[posX][posY + i] = 1;
+		}
+		return true;
 	}
 
 	this.toString = function() {

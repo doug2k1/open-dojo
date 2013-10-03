@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"ex",
+				"excBlaBla"
+			],
+			[
+				"PATRU",
+				"ShipTypes.PATRULHA"
+			],
+			[
+				"Sh",
+				"ShipTypes"
+			],
+			[
+				"pl",
+				"field.placeShip"
+			],
+			[
+				"pso",
+				"posY"
+			],
+			[
+				"pos",
+				"posX"
+			],
+			[
 				"vali",
 				"this.validPlace"
 			],
@@ -43,7 +67,7 @@
 			"file": "spec/FieldSpec.js",
 			"settings":
 			{
-				"buffer_size": 2826,
+				"buffer_size": 3743,
 				"line_ending": "Unix"
 			}
 		},
@@ -51,7 +75,15 @@
 			"file": "src/Field.js",
 			"settings":
 			{
-				"buffer_size": 1182,
+				"buffer_size": 1185,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/Player.js",
+			"settings":
+			{
+				"buffer_size": 539,
 				"line_ending": "Unix"
 			}
 		},
@@ -116,6 +148,11 @@
 	},
 	"file_history":
 	[
+		"/D/open-dojo/Battleship/src/Field.js",
+		"/D/open-dojo/Battleship/spec/ShipSpec.js",
+		"/D/DOJO/javascript/Battleship/spec/FieldSpec.js",
+		"/D/DOJO/javascript/Battleship/src/Ship.js",
+		"/D/DOJO/javascript/Battleship/src/Field.js",
 		"/D/DOJO/javascript/Battleship/SpecRunner.html",
 		"/D/DOJO/javascript/Battleship/spec/ShipSpec.js",
 		"/D/DOJO/javascript/Battleship/spec/PlayerSpec.js",
@@ -147,7 +184,7 @@
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 52.0
 	},
 	"find_in_files":
 	{
@@ -162,6 +199,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\n			",
+			"campo deve",
 			"instanci",
 			");\n",
 			"console.log",
@@ -197,15 +236,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2826,
+						"buffer_size": 3743,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2453,
-								2453
+								3618,
+								3618
 							]
 						],
 						"settings":
@@ -215,7 +254,7 @@
 							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1222.0,
+						"translation.y": 1889.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -226,31 +265,57 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1182,
+						"buffer_size": 1185,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								306,
-								306
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 162.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "src/Player.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "src/Ship.js",
 					"semi_transient": false,
 					"settings":
@@ -262,15 +327,14 @@
 						"selection":
 						[
 							[
-								266,
-								266
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

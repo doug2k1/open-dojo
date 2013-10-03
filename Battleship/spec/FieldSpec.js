@@ -100,6 +100,35 @@ describe("Campo", function() {
 		expect(field.field[0][9]).toBe(0);
 		expect(field.field[0][10]).toBeUndefined();
 		expect(field.placeShip(ship1, 0, 0)).toBeTruthy();
-		//expect(field.field[0][2]).toBe(0);
+		expect(field.field[0][2]).toBe(0);
+		expect(field.field[0][0]).toBe(1);
+		expect(field.field[0][1]).toBe(1);
+	});
+
+	it("não deve conseguir posicionar um navio num range fora do campo", function(){
+		console.log("10");
+		var ship1 = Ship(ShipTypes.PATRULHA);
+		expect(field.placeShip(ship1,0,10)).toBeFalsy();
+		expect(field.placeShip(ship1,10,0)).toBeFalsy();
+		expect(field.placeShip(ship1,10,10)).toBeFalsy();
+		expect(field.placeShip(ship1,15,12)).toBeFalsy();
+		
+	});
+	// TDD com design patterns
+	it("deve verificar posição antes do barco", function(){
+		console.log("11");
+		var ship1 = "";
+		var ship2 = Ship(ShipTypes.PATRULHA);
+		expect(field.placeShip(ship1, 10,10)).toBeFalsy();
+		var excBlaBla = function()
+		{
+			field.placeShip(ship1,0,0);
+		}
+		expect(excBlaBla).toThrow();
+		// TODO -> Refatorar a placeShip para lançar uma exception
+
+		expect(field.placeShip(ship2,-20,-1)).toBeFalsy();
+		expect(field.placeShip(ship2,0,0)).toBeFalsy();
+
 	});
 });
