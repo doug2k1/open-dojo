@@ -16,33 +16,63 @@ var Field = function() {
 		return true;
 	}
 
-	this.validPlace = function(ship, posX, posY){
-        //Se uma parte do navio fica fora do campo.
-		if((posX >= 10) || (posY + ship.length >= 10)){
-    		return false;
-    	}
+	this.validPlace = function(ship, posX, posY, dir){
 
-		for(var i = posY; i < ship.length; i++){
-			if(this.field[posX][posY + i] != 0){
-				return false;
-			} 
+		if(posX < 0 || posY < 0){
+			return false;			
 		}
-		return true;
+
+		if(dir == undefined){
+	        //Se uma parte do navio fica fora do campo.
+			if((posX >= 10) || (posY + ship.length >= 10)){
+	    		return false;
+	    	}
+
+			for(var i = posY; i < ship.length; i++){
+				if(this.field[posX][posY + i] != 0){
+					return false;
+				}
+			}
+			return true;
+		}else{
+			//Se uma parte do navio fica fora do campo.
+			if((posX + ship.length >= 10) || (posY >= 10)){
+	    		return false;
+	    	}
+
+			for(var i = posX; i < ship.length; i++){
+				if(this.field[posX + i][posY] != 0){
+					return false;
+				} 
+			}
+			return true;
+		}
 	}
 
-	this.placeShip = function(ship, posX, posY) {
+	this.placeShip = function(ship, posX, posY, dir) {
 		// TODO ... assumindo inicialmente que a orientação é horizontal
 
 		var shipSize = ship.length;
-		var isValid = this.validShip(ship) && this.validPlace(ship, posX, posY);
-		if (!isValid) {
-			return false;
+		//var isValid = this.validShip(ship) && this.validPlace(ship, posX, posY);
+
+		if (!this.validPlace(ship, posX, posY, dir))	{
+			throw "Erro - Posição inválida!";
 		}
 
-		for(var i = 0; i < shipSize; i++){
-			this.field[posX][posY + i] = 1;
+		if (!this.validShip(ship)) {
+			throw "Erro - Navio inválido!";
 		}
-		return true;
+		
+		for(var i = 0; i < shipSize; i++){
+			if (dir == undefined) {
+				this.field[posX][posY+i] = 1;
+			} else {
+				this.field[posX+i][posY] = 1;
+			}
+			
+			//dir == undefined ? posY++ : posX++;
+		}
+
 	}
 
 	this.toString = function() {

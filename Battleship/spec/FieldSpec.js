@@ -3,8 +3,14 @@
 //method hit 
 //method show log
 
-describe("Campo", function() {
-	var field;
+var field;
+var execPlaceShip = function(ship, posX,posY) {
+		return function() {
+			field.placeShip(ship,posX,posY)
+		};
+	};
+
+describe("Campo", function() {	
 
 	beforeEach(function() {
 		field = new Field();
@@ -42,10 +48,8 @@ describe("Campo", function() {
 	});
 
 	it("instanciado, deve ser possivel posicionar um navio", function() {
-		console.log("04");
 		var ship = Ship("barco de patrulha");
-
-		expect(field.placeShip(ship, 0, 0)).toBeTruthy();
+		expect(execPlaceShip(ship, 0, 0)).not.toThrow();
 	});
 
 	it("deve ser possivel inserir barco de patrulha na posição 0x0", function() {
@@ -64,29 +68,25 @@ describe("Campo", function() {
 		// });
 	});
 
-	it("Deve retornar false para barcos invalidos", function(){
-		console.log("06");
-		expect(field.placeShip([1], 0, 0)).toBeFalsy();
+	it("Deve atirar exceção para barcos invalidos", function(){
+		expect(execPlaceShip([1], 0, 0)).toThrow();
 		expect(field.field[0][0]).toBe(0);
-		console.log(field.field);
 	});
 
 	it("com seu range ocupado deve retornar falso", function() {
-		console.log("07");
 		console.log(field.field);
 		var ship1 = Ship(ShipTypes.PATRULHA);
 		field.placeShip(ship1, 0, 1);
 		console.log(field.field);
-		//expect(field.placeShip(ship1, 0, 0)).toBeFalsy();
+		// TODO ... descomentar esse teste
+		// expect(field.placeShip(ship1, 0, 0)).toBeFalsy();
 	});
 
 	it("com seu range ocupado nao deve ocupar nenhuma posição", function() {
-		console.log("08");
-		
 		var ship1 = Ship(ShipTypes.PATRULHA);
 		field.placeShip(ship1, 0, 1);
-		field.placeShip(ship1, 0, 0);
 
+		expect( execPlaceShip(ship1, 0, 0)).toThrow();
 		expect(field.field[0][0]).toBe(0);
 		expect(field.field[0][1]).toBe(1);
 		expect(field.field[0][2]).toBe(1);
@@ -96,10 +96,10 @@ describe("Campo", function() {
 	it("deve haver espaço para insercao do barco", function(){
 		console.log("09");
 		var ship1 = Ship(ShipTypes.PATRULHA);
-		expect(field.placeShip(ship1, 0, 9)).toBeFalsy();        
+		expect(execPlaceShip(ship1, 0, 9)).toThrow();        
 		expect(field.field[0][9]).toBe(0);
 		expect(field.field[0][10]).toBeUndefined();
-		expect(field.placeShip(ship1, 0, 0)).toBeTruthy();
+		expect(execPlaceShip(ship1, 0, 0)).not.toThrow();
 		expect(field.field[0][2]).toBe(0);
 		expect(field.field[0][0]).toBe(1);
 		expect(field.field[0][1]).toBe(1);
@@ -108,10 +108,10 @@ describe("Campo", function() {
 	it("não deve conseguir posicionar um navio num range fora do campo", function(){
 		console.log("10");
 		var ship1 = Ship(ShipTypes.PATRULHA);
-		expect(field.placeShip(ship1,0,10)).toBeFalsy();
-		expect(field.placeShip(ship1,10,0)).toBeFalsy();
-		expect(field.placeShip(ship1,10,10)).toBeFalsy();
-		expect(field.placeShip(ship1,15,12)).toBeFalsy();
+		expect(execPlaceShip(ship1,0,10)).toThrow();
+		expect(execPlaceShip(ship1,10,0)).toThrow();
+		expect(execPlaceShip(ship1,10,10)).toThrow();
+		expect(execPlaceShip(ship1,15,12)).toThrow();
 		
 	});
 	// TDD com design patterns
@@ -119,16 +119,39 @@ describe("Campo", function() {
 		console.log("11");
 		var ship1 = "";
 		var ship2 = Ship(ShipTypes.PATRULHA);
-		expect(field.placeShip(ship1, 10,10)).toBeFalsy();
-		var excBlaBla = function()
-		{
-			field.placeShip(ship1,0,0);
-		}
-		expect(excBlaBla).toThrow();
-		// TODO -> Refatorar a placeShip para lançar uma exception
-
-		expect(field.placeShip(ship2,-20,-1)).toBeFalsy();
-		expect(field.placeShip(ship2,0,0)).toBeFalsy();
+		expect(execPlaceShip(ship1, 10, 10)).toThrow();
+		expect(execPlaceShip(ship1, 0, 0)).toThrow();
+		expect(execPlaceShip(ship2, -20, -1)).toThrow();	
+		expect(execPlaceShip(ship2,0,0)).not.toThrow();
 
 	});
+
+
+});
+
+describe("Em um campo com barcos verticais", function() {
+	beforeEach(function() {
+		field = new Field();
+	});
+
+	it("deve ser possivel inserir barco de patrulha na posição 0x0", function() {
+		console.log("05");
+
+		var ship = Ship(ShipTypes.PATRULHA);
+        // Deve verificar se a posição 0x0 possui um barco de patrulha11
+		expect(field.placeShip(ship, 0, 0, 'vertical')).toBeTruthy;
+
+		expect(field.field[0][0]).toBe(1);
+		expect(field.field[1][0]).toBe(1);
+	});
+
+	it("deve ser possivel verificar um barco de patrulha com direcao vertical", function() {
+		console.log("05");
+
+		var ship = Ship(ShipTypes.PATRULHA);
+        // Deve verificar se a posição 0x0 possui um barco de patrulha11
+		expect(field.validPlace(ship, 0, 0, 'vertical')).toBeTruthy;
+	});
+
+
 });

@@ -4,8 +4,24 @@
 		"selected_items":
 		[
 			[
+				"toth",
+				".toThrow"
+			],
+			[
+				"exe",
+				"execPlaceShip"
+			],
+			[
+				"toBe",
+				".toBeTruthy"
+			],
+			[
+				"execPlaceSh",
+				"execPlaceShip2"
+			],
+			[
 				"ex",
-				"excBlaBla"
+				"execPlaceShip1"
 			],
 			[
 				"PATRU",
@@ -67,7 +83,15 @@
 			"file": "spec/FieldSpec.js",
 			"settings":
 			{
-				"buffer_size": 3743,
+				"buffer_size": 3673,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "spec/SpecHelper.js",
+			"settings":
+			{
+				"buffer_size": 702,
 				"line_ending": "Unix"
 			}
 		},
@@ -75,7 +99,7 @@
 			"file": "src/Field.js",
 			"settings":
 			{
-				"buffer_size": 1185,
+				"buffer_size": 1346,
 				"line_ending": "Unix"
 			}
 		},
@@ -184,7 +208,7 @@
 	],
 	"find":
 	{
-		"height": 52.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -227,7 +251,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -236,15 +260,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3743,
+						"buffer_size": 3673,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3618,
-								3618
+								2100,
+								2100
 							]
 						],
 						"settings":
@@ -254,32 +278,33 @@
 							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1889.0,
+						"translation.y": 1313.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/Field.js",
+					"file": "spec/SpecHelper.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1185,
+						"buffer_size": 702,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								691,
+								691
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -289,6 +314,35 @@
 				},
 				{
 					"buffer": 2,
+					"file": "src/Field.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1346,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1126,
+								1126
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+						},
+						"translation.x": 0.0,
+						"translation.y": 557.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "src/Player.js",
 					"semi_transient": false,
 					"settings":
@@ -315,7 +369,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "src/Ship.js",
 					"semi_transient": false,
 					"settings":
@@ -327,8 +381,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								26,
+								26
 							]
 						],
 						"settings":
