@@ -65,14 +65,30 @@ var Field = function() {
 		
 		for(var i = 0; i < shipSize; i++){
 			if (dir == undefined) {
-				this.field[posX][posY+i] = 1;
+				this.field[posX][posY+i] = ship[0];
 			} else {
-				this.field[posX+i][posY] = 1;
+				this.field[posX+i][posY] = ship[0];
 			}
 			
 			//dir == undefined ? posY++ : posX++;
 		}
 
+	}
+
+	/*
+	mantém 0 - tiro n´água (se atirar novamente, tenho pena de vc)
+	se shoot estiver fora dos limites = EXCEPTION
+	n° negativo - barco atingido
+	shoot retorna status ("A"tigindo, "N"ão atingido, a"F"undado)
+	*/
+	this.shoot = function(x, y) {
+
+		//this.field[x][y] = this.field[x][y] * -1;
+		if (this.field[x][y] > 0) {
+			this.field[x][y] = this.field[x][y] * -1;
+		}
+		
+		return (this.field[x][y]) ? "A" : "N";
 	}
 
 	this.toString = function() {

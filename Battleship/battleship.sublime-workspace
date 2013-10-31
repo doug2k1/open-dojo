@@ -4,6 +4,50 @@
 		"selected_items":
 		[
 			[
+				"plae",
+				"field.placeShip"
+			],
+			[
+				"sh",
+				"field.shoot"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"Shi",
+				"ShipTypes"
+			],
+			[
+				"pla",
+				"field.placeShip"
+			],
+			[
+				"fil",
+				"field"
+			],
+			[
+				"Con",
+				"console"
+			],
+			[
+				"ex",
+				"expect"
+			],
+			[
+				"toBe",
+				".toBeTruthy"
+			],
+			[
+				"pos",
+				"posY"
+			],
+			[
+				"be",
+				"beforeEach"
+			],
+			[
 				"toth",
 				".toThrow"
 			],
@@ -12,16 +56,8 @@
 				"execPlaceShip"
 			],
 			[
-				"toBe",
-				".toBeTruthy"
-			],
-			[
 				"execPlaceSh",
 				"execPlaceShip2"
-			],
-			[
-				"ex",
-				"execPlaceShip1"
 			],
 			[
 				"PATRU",
@@ -40,10 +76,6 @@
 				"posY"
 			],
 			[
-				"pos",
-				"posX"
-			],
-			[
 				"vali",
 				"this.validPlace"
 			],
@@ -54,10 +86,6 @@
 			[
 				"cons",
 				"console"
-			],
-			[
-				"fil",
-				"field.field"
 			],
 			[
 				"expe",
@@ -83,7 +111,15 @@
 			"file": "spec/FieldSpec.js",
 			"settings":
 			{
-				"buffer_size": 3673,
+				"buffer_size": 6615,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "spec/ShipSpec.js",
+			"settings":
+			{
+				"buffer_size": 1483,
 				"line_ending": "Unix"
 			}
 		},
@@ -99,8 +135,17 @@
 			"file": "src/Field.js",
 			"settings":
 			{
-				"buffer_size": 1346,
+				"buffer_size": 2219,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "mantém 0 - tiro n´água (se atirar novamente, tenho pena de vc)\n\nse shoot estiver fora dos limites = EXCEÇÃO\nn° negativo - barco atingido\nshoot retorna status (\"A\"tigindo, \"N\"ão atingido, a\"F\"undado)",
+			"settings":
+			{
+				"buffer_size": 198,
+				"line_ending": "Windows",
+				"name": "mantém 0 - tiro n´água (se atirar novamente, tenho"
 			}
 		},
 		{
@@ -251,7 +296,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -260,15 +305,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3673,
+						"buffer_size": 6615,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2100,
-								2100
+								6453,
+								6453
 							]
 						],
 						"settings":
@@ -278,13 +323,42 @@
 							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1313.0,
+						"translation.y": 3165.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "spec/ShipSpec.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1483,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1474,
+								1474
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
+						},
+						"translation.x": 0.0,
+						"translation.y": 143.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "spec/SpecHelper.js",
 					"semi_transient": false,
 					"settings":
@@ -313,20 +387,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "src/Field.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1346,
+						"buffer_size": 2219,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1126,
-								1126
+								1993,
+								1993
 							]
 						],
 						"settings":
@@ -336,13 +410,41 @@
 							"word_separators": "./\\\\()\\\"\\'-:,.;<>~!@#%^&*|+=[]{}`~?"
 						},
 						"translation.x": 0.0,
-						"translation.y": 557.0,
+						"translation.y": 1188.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 198,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "mantém 0 - tiro n´água (se atirar novamente, tenho",
+							"is_xml": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "src/Player.js",
 					"semi_transient": false,
 					"settings":
@@ -369,7 +471,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "src/Ship.js",
 					"semi_transient": false,
 					"settings":
@@ -381,8 +483,8 @@
 						"selection":
 						[
 							[
-								26,
-								26
+								272,
+								272
 							]
 						],
 						"settings":
@@ -467,7 +569,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 84.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

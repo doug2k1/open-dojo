@@ -6,6 +6,8 @@
 // das fronteiras da sua área disponível.
 
 describe("Um navio", function() {
+	var field = new Field();
+
 	it("de patrulha deveria ter tamanho igual a 2", function(){
 		var navio = Ship(ShipTypes.PATRULHA);
 		expect(navio.length).toBe(2);
@@ -25,5 +27,12 @@ describe("Um navio", function() {
 	it("porta-aviões deveria ter tamanho igual a 5", function(){
 		var navio = Ship(ShipTypes.PORTA_AVIOES);
 		expect(navio.length).toBe(5);
+	});
+	it("X deve preencher o tabuleiro com o vaor X", function(){
+		var navio = Ship(ShipTypes.DESTROYER);
+		expect(field.placeShip(navio, 0, 0)).toBeTruthy;
+		expect(field.field[0][0]).toBe(2);
+		expect(field.field[0][1]).toBe(2);
+		expect(field.field[0][2]).toBe(2);
 	});
 });
