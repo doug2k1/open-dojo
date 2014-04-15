@@ -47,6 +47,11 @@ class mochila_test(unittest.TestCase):
         lista = [1, 2, -4]
         self.assertEqual(mochila(lista, numero),True)
 
+    def test_numero_negativo_lista_positivo(self):
+        numero = -1
+        lista = [1, 2, 3, 4, 5, 6]
+        self.assertEqual(mochila(lista, numero),False)
+
 
 if __name__ == "__main__":
     unittest.main()
