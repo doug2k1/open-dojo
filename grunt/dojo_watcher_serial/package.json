@@ -1,5 +1,5 @@
 {
-  "name": "dojo_watcher",
+  "name": "dojo_watcher_serial",
   "version": "0.0.0",
   "description": "0.0.1",
   "main": "index.js",
@@ -11,7 +11,8 @@
     "php",
     "Grunt",
     "watcher",
-    "dojo"
+    "dojo",
+    "serial"
   ],
   "author": "Carlos Eduardo (ccunha)",
   "license": "GPL",
@@ -19,6 +20,7 @@
     "grunt": "~0.4.5",
     "grunt-notify": "~0.3.0",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-shell": "~0.7.0"
+    "grunt-shell": "~0.7.0",
+    "serialport": "~1.4.0"
   }
 }
