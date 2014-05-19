@@ -25,6 +25,8 @@ module.exports = function(grunt) {
     command: 'c:\\wamp\\bin\\php\\php5.3.1\\php.exe c:\\wamp\\www\\ted\\index.php',
     success_pattern: 'Failures: 0, Exceptions: 0',
     file_mask: 'c:\\wamp\\www\\ted\\**/*.*',
+    serial_port: 'COM2',
+    serial_velocity: 57600,
   };
 
   ...
