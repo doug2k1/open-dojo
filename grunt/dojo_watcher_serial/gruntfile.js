@@ -3,22 +3,25 @@ module.exports = function(grunt) {
     command: 'c:\\wamp\\bin\\php\\php5.3.1\\php.exe c:\\wamp\\www\\ted\\index.php',
     success_pattern: 'Failures: 0, Exceptions: 0',
     file_mask: 'c:\\wamp\\www\\ted\\**/*.*',
-    serial_port: 'COM2',
-    serial_velocity: 9600,
+    serial_port: 'COM5',
+    serial_velocity: 57600,
   };
 
-  var SerialPort = require("serialport").SerialPort
-  var serialPort = new SerialPort(setup.serial_port, {
-    baudrate: setup.serial_velocity
-  });
-
+  var serialport = require("serialport");
+  var SerialPort = serialport.SerialPort; // localize object constructor
+  var serialPort = new SerialPort("COM5", {
+    baudrate: 57600,
+    parser: serialport.parsers.readline("\n")
+  }, false); // this is the openImmediately flag [default is true]
 
   function log(err, stdout, stderr, cb) {
-      if (stdout.search(setup.success_pattern) == -1) {
-        serialPort.write("VERMELHO\r");
-        grunt.fail.warn("Tests FAIL!!!");
-      };
-      serialPort.write("VERDE\r");
+      serialPort.open(function () {
+        if (stdout.search(setup.success_pattern) == -1) {
+          serialPort.write("vermelho" + '\r\n');
+          grunt.fail.warn("Tests FAIL!!!");
+        };
+        serialPort.write("verde" + '\r\n');
+      });
       cb();
   }
   grunt.initConfig({
