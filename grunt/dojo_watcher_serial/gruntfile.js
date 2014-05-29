@@ -3,12 +3,25 @@ module.exports = function(grunt) {
     command: 'ls',
     success_pattern: 'Failures: 0, Exceptions: 0',
     file_mask: '**/*.*',
+    serial_port: 'COM5',
+    serial_velocity: 57600,
   };
 
+  var serialport = require("serialport");
+  var SerialPort = serialport.SerialPort; // localize object constructor
+  var serialPort = new SerialPort("COM5", {
+    baudrate: 57600,
+    parser: serialport.parsers.readline("\n")
+  }, false); // this is the openImmediately flag [default is true]
+
   function log(err, stdout, stderr, cb) {
-      if (stdout.search(setup.success_pattern) == -1) {
-        grunt.fail.warn("Tests FAIL!!!");
-      };
+      serialPort.open(function () {
+        if (stdout.search(setup.success_pattern) == -1) {
+          serialPort.write("vermelho" + '\r\n');
+          grunt.fail.warn("Tests FAIL!!!");
+        };
+        serialPort.write("verde" + '\r\n');
+      });
       cb();
   }
   grunt.initConfig({
@@ -30,6 +43,5 @@ module.exports = function(grunt) {
   //grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-shell');
-
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['watch', 'notify:watch']);
 };

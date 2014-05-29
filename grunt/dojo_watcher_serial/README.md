@@ -2,6 +2,12 @@ Dojo Watcher
 ============
 
 This is a simple watcher to run test files in dojo sessions.
+=======
+Dojo Watcher Serial
+===================
+
+This is a simple watcher to run test files in dojo sessions, this version will work with serial module (semaphore) to be implemented with arduino
+the garage ;)
 
 Just need to clone this and setup.
 
@@ -12,6 +18,7 @@ Clonning
 ```sh
 git clone [git-repo-url]
 cd dojo_watcher
+cd dojo_watcher_serial
 npm iinstall
 ```
 
@@ -24,6 +31,8 @@ module.exports = function(grunt) {
     command: 'c:\\wamp\\bin\\php\\php5.3.1\\php.exe c:\\wamp\\www\\ted\\index.php',
     success_pattern: 'Failures: 0, Exceptions: 0',
     file_mask: 'c:\\wamp\\www\\ted\\**/*.*',
+    serial_port: 'COM2',
+    serial_velocity: 57600,
   };
 
   ...

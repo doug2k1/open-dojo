@@ -11,7 +11,8 @@
     "php",
     "Grunt",
     "watcher",
-    "dojo"
+    "dojo",
+    "serial"
   ],
   "author": "Carlos Eduardo (ccunha)",
   "license": "GPL",
