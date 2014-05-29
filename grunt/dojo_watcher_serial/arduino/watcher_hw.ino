@@ -7,14 +7,17 @@
 #define _COR_VERMELHA '1'
 
 char inData[64];
-char inChar=-1;
+char inChar     = -1;
 
-int fioBranco = 11;
-int fioAzul   = 10;
-int fioCinza  = 9;
-int fioRoxo   = 6;
+int fioBranco   = 11;
+int fioAzul     = 10;
+int fioCinza    = 9;
+int fioRoxo     = 6;
 
-int lastColor = 9;
+int ledVermelho = 12;
+int ledVerde    = 13;
+
+int lastColor   = 9;
 
 void setup(){
   pinMode(fioBranco,OUTPUT);
@@ -45,14 +48,20 @@ void loop(){
 //        transita(inChar);
         if (inChar == _COR_VERDE){
           corVerde();
+          digitalWrite(ledVerde, HIGH);
+          digitalWrite(ledVermelho, LOW);
           Serial.println("Verde");
         }
         if (inChar == _COR_VERMELHA){
           corVermelha();
+          digitalWrite(ledVerde, LOW);
+          digitalWrite(ledVermelho, HIGH);
           Serial.println("Vermelho");
         }
         if (inChar == '9'){
           corOff();
+          digitalWrite(ledVerde, LOW);
+          digitalWrite(ledVermelho, LOW);
           Serial.println("Desliga");
         }
     }
