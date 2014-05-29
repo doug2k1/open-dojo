@@ -2,7 +2,7 @@ Dojo Watcher
 ============
 
 This is a simple watcher to run test files in dojo sessions.
-=======
+
 Dojo Watcher Serial
 ===================
 
