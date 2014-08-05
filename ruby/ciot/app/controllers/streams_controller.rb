@@ -5,12 +5,11 @@ class StreamsController < ApplicationController
     key = request.headers['key']
     device = Device.find_by_key(key) if key
     
-    unless device
-      render status: :bad_request and return
+    if device
+      device.streams.create(body: request.body.read)
+      render status: :ok
+    else
+      render status: :bad_request
     end
-    
-    device.streams.create(body: request.body.read)
-    
-    render status: :ok
   end
 end
