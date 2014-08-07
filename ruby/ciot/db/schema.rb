@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140731153952) do
+ActiveRecord::Schema.define(version: 20140807152544) do
 
   create_table "devices", force: true do |t|
     t.string   "key"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20140731153952) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "devices", ["key"], name: "index_devices_on_key", unique: true, using: :btree
 
   create_table "streams", force: true do |t|
     t.integer  "device_id"

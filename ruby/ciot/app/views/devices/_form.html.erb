@@ -10,11 +10,12 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :key %><br>
-    <%= f.text_field :key %>
-  </div>
+  <% if @device.key %>
+    <div class="field">
+      <%= f.label :key %><br>
+      <span><%= @device.key %></span>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
