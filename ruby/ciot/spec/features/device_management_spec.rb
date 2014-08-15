@@ -20,6 +20,12 @@ describe 'Device management' do
       
       expect { click_button 'Create Device' }.to change(Device, :count).by(1)
     end
+    
+    it 'does not create a device with invalid information' do
+      visit new_device_path
+      
+      expect { click_button 'Create Device' }.not_to change(Device, :count)
+    end
   end
   
   context 'showing a device' do
@@ -33,7 +39,7 @@ describe 'Device management' do
   end
   
   context 'editing a device' do
-    it 'changes the device information' do
+    it 'changes the device with valid information' do
       device = FactoryGirl.create(:device)
       new_name = 'Device Modified'
       visit edit_device_path(device)
@@ -42,6 +48,15 @@ describe 'Device management' do
 
       expect(page).to have_content(device.key)
       expect(page).to have_content(new_name)
+    end
+    
+    it 'does not change the device with invalid information' do
+      device = FactoryGirl.create(:device)
+      visit edit_device_path(device)
+      fill_in 'device_name', with: ''
+      click_button 'Update Device'
+
+      expect(page).to have_css('#error_explanation')
     end
   end
   
